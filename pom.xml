@@ -43,6 +43,12 @@
 			<optional>true</optional>
 		</dependency>
 
+			<!-- primefaces -->
+			<dependency>
+				<groupId>org.primefaces</groupId>
+				<artifactId>primefaces</artifactId>
+				<version>5.3</version>
+			</dependency>
 
 		<!-- PRETTY FACES -->
 		<dependency>
@@ -51,6 +57,7 @@
 			<version>3.3.2</version>
 		</dependency>
 		
+		<!-- jstl for jsp page -->
 		<!-- jsf need / fix : ClassNotFoundException : javax.servlet.jsp.jstl.core.Config -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

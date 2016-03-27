@@ -12,4 +12,10 @@
         <phase-listener>org.springframework.web.jsf.DelegatingPhaseListenerMulticaster</phase-listener>
     </lifecycle>
 
+	<!-- <resource-bundle> -->
+	<!-- <base-name>JSF Spring Integration</base-name> -->
+	<!-- <var>labels</var> -->
+	<!-- </resource-bundle> -->
+	<!-- </application> -->
+
 </faces-config>
