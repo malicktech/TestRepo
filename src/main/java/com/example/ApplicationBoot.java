@@ -17,6 +17,7 @@ public class ApplicationBoot {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApplicationBoot.class, args);
+//		SpringApplication.run(new Class[]  {ApplicationBoot.class, Initializer.class}, args);
 	}
 	
 	@Bean
@@ -25,15 +26,20 @@ public class ApplicationBoot {
 	}
 	
 	@Configuration
-	@Profile("dev")
+	@Profile("dev") // classe ou méthode excécuté uniquement si le profil dev est excécuté
 	static class ConfigureJSFContextParameters implements ServletContextInitializer {
+		
 	    @Override
 	    public void onStartup(ServletContext servletContext) throws ServletException {
+	    	System.err.println("----------------- onStartup -------------------");
+	    	
 	        servletContext.setInitParameter("javax.faces.DEFAULT_SUFFIX",".xhtml");
 	        servletContext.setInitParameter("javax.faces.PARTIAL_STATE_SAVING_METHOD", "true");
 	        servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
 	        servletContext.setInitParameter("facelets.DEVELOPMENT", "true");
 	        servletContext.setInitParameter("javax.faces.FACELETS_REFRESH_PERIOD", "1");
 	    }
+	    
+	    
 	}
 }
