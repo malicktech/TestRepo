@@ -4,6 +4,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 import org.springframework.boot.context.embedded.ServletContextInitializer;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -14,14 +15,26 @@ import org.springframework.context.annotation.Configuration;
  * to register a  JSF servlet to servlet Context  : solved it just with using a ServletContextInitializer 
  */
 
-/* for deploy war in STANDALONE tomcat */
+/* for deploy war in STANDALONE tomcat 
+ * using WebApplicationInitializer class to register DispatcherServlet, ContextLoaderListener and RequestContextListener
+ * */
 //import org.springframework.web.WebApplicationInitializer;
 // public class Initializer implements WebApplicationInitializer {
 // @Override
 // public void onStartup(ServletContext servletContext) throws ServletException {
-//		System.err.println("------------------------------------");
+//		System.err.println("-----------------Initializer -------------------");
+//AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();  
+//ctx.register(AppConfig.class);  
+//ctx.setServletContext(servletContext);    
+//servletContext.addListener(new ContextLoaderListener(ctx));
+//servletContext.addListener(new RequestContextListener());
+//Dynamic dynamic = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));  
+//dynamic.addMapping("/");  
+//dynamic.setLoadOnStartup(1);
 //	}
 //}
+
+// extends SpringBootServletInitializer
 
  /* for EMBEDDED tomcat*/ 
 //@Configuration

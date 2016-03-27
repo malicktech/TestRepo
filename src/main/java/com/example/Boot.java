@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import com.example.config.AppConfig;
 
 
-public class ApplicationBoot {
+public class Boot {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AppConfig.class, args);

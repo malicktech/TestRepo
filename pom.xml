@@ -80,6 +80,7 @@
 		</dependency>
 		
 		<!-- jsf need / resolve javax.servlet.jsp.JspFactory issue -->
+		<!-- JSF's ConfigureListener also has a dependency on JSP -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
