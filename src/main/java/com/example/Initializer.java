@@ -46,5 +46,15 @@ import org.springframework.context.annotation.Configuration;
 //}
 
 
-public class Initializer {
+
+@Configuration
+public class Initializer implements ServletContextInitializer {
+ 
+  @Override
+  public void onStartup(ServletContext sc) throws ServletException {
+    sc.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", "true");
+    sc.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
+  }
+  
+  // add Initializer.class in boot main
 }

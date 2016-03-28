@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.example" })
+@ComponentScan(basePackages = { "" })
 @Import({ JsfConfig.class, BeanConfig.class, WebConfig.class })
 public class AppConfig  {
 

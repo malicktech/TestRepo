@@ -4,6 +4,7 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
               version="2.2">
 
+<!-- SpringELResolver  :m Allow use Spring Beans instead of JSF beans, so no need to use @ManagedBeans at all -->
     <application>
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver> 
     </application>
