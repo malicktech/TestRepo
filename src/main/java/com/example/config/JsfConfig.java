@@ -1,17 +1,25 @@
 package com.example.config;
 
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.faces.webapp.FacesServlet;
+import javax.servlet.DispatcherType;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
+import org.ocpsoft.rewrite.servlet.RewriteFilter;
+import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletContextInitializer;
 import org.springframework.boot.context.embedded.ServletListenerRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.PathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
 import org.springframework.web.context.ServletContextAware;
 
 import com.sun.faces.config.ConfigureListener;
@@ -73,7 +81,7 @@ public class JsfConfig implements ServletContextAware {
 	@Bean
 	public ServletRegistrationBean facesServletRegistration() {
 		System.err.println("----------------- facesServletRegistration -------------------");
-		ServletRegistrationBean registration = new ServletRegistrationBean(new FacesServlet(), new String[] { "*.xhtml", "*.faces" });
+		ServletRegistrationBean registration = new ServletRegistrationBean(new FacesServlet(), new String[] { "*.xhtml", "*.faces", "*.jsf" });
 		registration.setName("FacesServlet");
 		registration.setLoadOnStartup(1);
 		return registration;
@@ -85,7 +93,7 @@ public class JsfConfig implements ServletContextAware {
 		return new ServletListenerRegistrationBean<ConfigureListener>(new ConfigureListener());
 	}
 
-
+    
 	/**
 	 * Add facelet parameter 
 	 * 

@@ -1,4 +1,4 @@
-package com.example.ex04;
+package com.example.config;
 
 import javax.servlet.ServletContext;
 
@@ -20,6 +20,7 @@ public class FacesRewriteConfigurationProvider extends HttpConfigurationProvider
 	   @Override
 	   public Configuration getConfiguration(final ServletContext context)
 	   {
+		System.err.println("----------------- FacesRewriteConfigurationProvider -------------------");
 	     return ConfigurationBuilder.begin()
 	       .addRule(Join.path("/").to("/index.jsf"))
 	       .addRule(Join.path("/book/{id}/").to("/viewBook.jsf"));

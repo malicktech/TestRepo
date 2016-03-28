@@ -1,53 +1,26 @@
-package com.example.ex04;
+package com.example.config;
 
 import java.util.EnumSet;
 
+import javax.servlet.DispatcherType;
+
 import org.ocpsoft.rewrite.servlet.RewriteFilter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
-import org.springframework.boot.context.embedded.ServletRegistrationBean;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.PathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
 
-import javax.faces.webapp.FacesServlet;
-import javax.servlet.DispatcherType;
+@Configuration
+public class ex04Config {
 
-/**
- * Created by Alex on 28/02/2015.
- */
-
-@EnableAutoConfiguration
-@ComponentScan({"com.oakdalesoft.bootfaces"})
-public class Application extends SpringBootServletInitializer {
-	
 	@Value("${init.json}")
 	private String init;
-
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class, Initializer.class);
-    }
-
-    @Bean
-    public ServletRegistrationBean servletRegistrationBean() {
-        FacesServlet servlet = new FacesServlet();
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(servlet, "*.jsf");
-        return servletRegistrationBean;
-    }
-    
-    @Bean
+	
+	@Bean
     public FilterRegistrationBean rewriteFilter() {
         FilterRegistrationBean rwFilter = new FilterRegistrationBean(new RewriteFilter());
         rwFilter.setDispatcherTypes(EnumSet.of(DispatcherType.FORWARD, DispatcherType.REQUEST,
@@ -55,7 +28,7 @@ public class Application extends SpringBootServletInitializer {
         rwFilter.addUrlPatterns("/*");
         return rwFilter;
     }
-    
+	
     @Bean
     public Jackson2RepositoryPopulatorFactoryBean repositoryPopulator() {
     	Resource sourceData;
@@ -72,5 +45,4 @@ public class Application extends SpringBootServletInitializer {
 
 		return factory;
     }
-
 }

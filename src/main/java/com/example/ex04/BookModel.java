@@ -1,7 +1,4 @@
-package com.example.ex04.view;
-
-import com.example.ex04.domain.Book;
-import com.example.ex04.persistence.BookRepository;
+package com.example.ex04;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -11,9 +8,6 @@ import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alex on 07/03/2015.
- */
 @ManagedBean(name = "model", eager = true)
 @RequestScoped
 public class BookModel {

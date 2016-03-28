@@ -1,15 +1,26 @@
-package com.example.ex04.domain;
+package com.example.ex04;
 
 import javax.persistence.*;
-
-/**
- * Created by Alex on 07/03/2015.
- */
 
 @Entity
 @Table(schema = "books.public", name = "Book")
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
+    @Column(nullable = false)
+    private String title;
+    @Column(nullable = true)
+    private Float price;
+    @Column(nullable = true)
+    private String description;
+    @Column(nullable = true)
+    private Integer nbofpage;
+    @Column(nullable = true)
+    private Boolean illustrations;
+    
+    
     public Long getId() {
         return id;
     }
@@ -57,19 +68,5 @@ public class Book {
     public void setIllustrations(Boolean illustrations) {
         this.illustrations = illustrations;
     }
-
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-    @Column(nullable = false)
-    private String title;
-    @Column(nullable = true)
-    private Float price;
-    @Column(nullable = true)
-    private String description;
-    @Column(nullable = true)
-    private Integer nbofpage;
-    @Column(nullable = true)
-    private Boolean illustrations;
 
 }

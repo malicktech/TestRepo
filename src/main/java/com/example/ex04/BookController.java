@@ -1,7 +1,4 @@
-package com.example.ex04.service;
-
-import com.example.ex04.domain.Book;
-import com.example.ex04.persistence.BookRepository;
+package com.example.ex04;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,10 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-/**
- * Created by Alex on 18/03/2015.
- */
 
 @RestController
 public class BookController {
