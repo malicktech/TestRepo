@@ -2,14 +2,14 @@ package com.example.ex04;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-
-/**
- * Created by Alex on 07/03/2015.
- */
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "book", eager = true)
-@RequestScoped
+//@RequestScoped
+@SessionScoped
 public class BookView extends Book {
 
-    public BookView() { }
+	private static final long serialVersionUID = 1L;
+
+	public BookView() { }
 }

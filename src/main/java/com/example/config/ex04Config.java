@@ -9,19 +9,23 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.PathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class ex04Config {
 
 	@Value("${init.json}")
 	private String init;
 	
+	// add filter for rewriteFilter
 	@Bean
     public FilterRegistrationBean rewriteFilter() {
+		System.err.println("------------------ rewriteFilter - FilterRegistrationBean  ------------------");
         FilterRegistrationBean rwFilter = new FilterRegistrationBean(new RewriteFilter());
         rwFilter.setDispatcherTypes(EnumSet.of(DispatcherType.FORWARD, DispatcherType.REQUEST,
                 DispatcherType.ASYNC, DispatcherType.ERROR));

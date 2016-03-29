@@ -1,12 +1,16 @@
 package com.example.ex04;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(schema = "books.public", name = "Book")
-public class Book {
+public class Book implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+	
+	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)

@@ -4,12 +4,18 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean(name = "model", eager = true)
-@RequestScoped
+//@RequestScoped
+@SessionScoped
+@Component
 public class BookModel {
 
     public void setBook(BookView book) {

@@ -5,6 +5,7 @@
 
 > use OcpSoft Rewrite (instead of Pretty Faces) to the project, this rewrites the JSF URL schema to look clean and modern without file extensions. Note that Omnifaces doesn't work with Spring Boot.
 
+	OcpSoft Rewrite + Tuckey URLRewriteFilter
 ---
 
 ### TODO tutos

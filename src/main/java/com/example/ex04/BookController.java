@@ -10,17 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BookController {
 
-    @Autowired
-    private BookRepository bookRepository;
+	@Autowired
+	private BookRepository bookRepository;
 
-    @RequestMapping("/service/books")
-    public @ResponseBody
-    Iterable<Book> getAllBooks() {
-        return this.bookRepository.findAll();
-    }
-    
-    @RequestMapping(value="/service/book/{id}", method=RequestMethod.GET)
-    public @ResponseBody Book getBookById(@PathVariable Long id) {
-        return this.bookRepository.findOne(id);
-    }
+	@RequestMapping("/service/books")
+	public @ResponseBody Iterable<Book> getAllBooks() {
+		return this.bookRepository.findAll();
+	}
+
+	@RequestMapping(value = "/service/book/{id}", method = RequestMethod.GET)
+	public @ResponseBody Book getBookById(@PathVariable Long id) {
+		return this.bookRepository.findOne(id);
+	}
 }

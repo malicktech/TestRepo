@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Import;
 import com.example.config.BeanConfig;
 import com.example.config.JsfConfig;
 import com.example.config.WebAppConfig;
+import com.example.config.ex04Config;
 
 // @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackages = { "com.example" })
-@Import({ JsfConfig.class, BeanConfig.class, WebAppConfig.class
-	// FacesRewriteConfigurationProvider.class,
-	})
+@Import({ JsfConfig.class, BeanConfig.class, WebAppConfig.class, ex04Config.class})
+//FacesRewriteConfigurationProvider.class
 public class Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
