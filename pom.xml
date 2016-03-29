@@ -6,7 +6,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>demoJsfSpringBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<!-- <packaging>jar</packaging> -->
+	<packaging>war</packaging>
 
 	<name>SpringBootJSF</name>
 	<description>Demo project for Spring Boot</description>
@@ -29,12 +29,19 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<!-- to deploy in tomcat -->
-		<!-- <tomcat.version>8.0.28</tomcat.version> -->
+		<tomcat.version>8.0.28</tomcat.version>
 	</properties>
 
 	<!-- REPOSITORIES -->
 	<!-- ============================================================================================== -->
-
+	<repositories>
+	<repository>
+            <id>prime-repo</id>
+            <name>Prime Repo</name>
+            <url>http://repository.primefaces.org</url>
+        </repository>
+	</repositories>
+	
 	<!-- DEPENDENCIES -->
 	<!-- ============================================================================================== -->
 
@@ -104,9 +111,14 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.primefaces.extensions</groupId>
+			<groupId>org.primefaces.themes</groupId>
 			<artifactId>all-themes</artifactId>
-			<version>1.0.8</version>
+			<version>1.0.10</version>
+		</dependency>
+		<dependency> <!-- JSF Framework based on Bootstrap -->
+			<groupId>net.bootsfaces</groupId>
+			<artifactId>bootsfaces</artifactId>
+			<version>0.7.0</version>
 		</dependency>
 
 		<!-- REWRITE JS URL : PRETTY FACES VS ocpsoft rEWRITE -->
@@ -127,17 +139,30 @@
 		</dependency>
 
 
+		<!-- COMMONS -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+
 
 		<!-- DEPENDENCIES FROM EMBEDDED TOMCAT -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-core</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency> <!-- Logging in Tomcat -->
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-logging-juli</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<!-- jstl for jsp page -->
 		<!-- need to fix : ClassNotFoundException : javax.servlet.jsp.jstl.core.Config -->
@@ -158,8 +183,6 @@
 		<!-- <artifactId>tomcat-jasper</artifactId> -->
 		<!-- <version>${tomcat.version}</version> -->
 		<!-- </dependency> -->
-
-
 
 		<!-- TEST -->
 		<dependency>
@@ -189,6 +212,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 

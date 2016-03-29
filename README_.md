@@ -1,5 +1,6 @@
 # TODO LIST  
 
+test all showcase : http://www.primefaces.org/showcase/
 
 ### REWRITE URL
 
