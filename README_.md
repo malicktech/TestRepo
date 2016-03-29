@@ -13,12 +13,18 @@ test all showcase : http://www.primefaces.org/showcase/
 
 	http://thierry-leriche-dessirier.developpez.com/tutoriels/java/jolies-url-pretty-faces-jsf-intro/
 
-	http://www.oakdalesoft.com/2015/09/spring-boot-with-jsfprimefaces/
-		
-	https://github.com/bilak/spring-boot-primefaces-template
+
 	
 ### DONE 
 
+	http://www.oakdalesoft.com/2015/09/spring-boot-with-jsfprimefaces/
+		
+	example 04 :	
+	https://github.com/bilak/spring-boot-primefaces-template
+	
+	example 5:
+	http://blog.payara.fish/bootiful-enterprise-applications-powered-by-spring-boot-and-hosted-on-payara-micro
+	
 	
 # # example 1, 2 , 3 : test JSF conf 
 
